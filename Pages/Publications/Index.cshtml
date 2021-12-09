@@ -1,0 +1,46 @@
+﻿@page
+@model proyect1_Publicaciones.Pages.Publications.IndexModel
+@{
+    ViewData["Title"] = "Publications";
+}
+<br />
+<div class="container row">
+    <div class="col-6">
+        <h2 class="text-info">List of your Publications</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-page="Create" class="btn btn-primary">New Publication</a>
+    </div>
+    <div>
+
+    </div>
+</div>
+
+
+@{
+    int hash = User.Identity.
+}
+
+
+@if (Model.Publicaciones.Count() > 0)
+{
+    <br />
+    <div class="card">
+        <div class="card-header">
+            @User.Identity.Name
+            @User.Identity.GetHashCode();
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>
+                    @Html.DisplayFor(m => m.Publicaciones.FirstOrDefault().texto)
+                </p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+        </div>
+    </div>
+}
+else
+{
+    <p>There`s no publications</p>
+}
